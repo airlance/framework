@@ -1,0 +1,27 @@
+{
+  "name": "airlance/framework",
+  "description": "Airlance Framework",
+  "keywords": ["yii2", "Airlance", "Framework"],
+  "homepage": "https://github.com/airlance",
+  "type": "project",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.1.0",
+    "yiisoft/yii2": "~2.0.45",
+    "dragonmantank/cron-expression": "^3.1"
+  },
+  "config": {
+    "process-timeout": 1800
+  },
+  "autoload": {
+    "psr-4": {
+      "Airlance\\Framework\\": "src"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
