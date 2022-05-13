@@ -17,6 +17,22 @@ class JobController extends Controller
 {
     public $job_id;
 
+
+    /**
+     * Check if a new job exist.
+     */
+    public function actionCheck()
+    {
+        $time = strtotime(date('Y-m-d H:i:s')) + 59;
+        foreach (Job::find()->where(['status' => Status::STATUS_ACTIVE])->all() as $job) {
+            $cron = new CronExpression($job->command);
+            if ($time >= strtotime($cron->getNextRunDate()->format('Y-m-d H:i:s'))) {
+                $command = 'php ' . ROOT_PATH . "/frdm cron/execute --job_id=$job->job_id &";
+                exec($command);
+            }
+        }
+    }
+
     /**
      * Execute process.
      */
