@@ -13,11 +13,6 @@
   "config": {
     "process-timeout": 1800
   },
-  "autoload": {
-    "psr-4": {
-      "Airlance\\Framework\\": "src"
-    }
-  },
   "repositories": [
     {
       "type": "composer",
