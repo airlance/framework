@@ -12,4 +12,5 @@ use Yii;
  */
 class MigrateController extends BaseMigrateController
 {
+    public $migrationPath = ['@app/migrations', __DIR__ . '/../Migration'];
 }
