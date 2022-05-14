@@ -10,8 +10,6 @@ class m220101_223534_cron extends Migration
 {
     protected $table = "{{%cron}}";
 
-    protected $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
-
     public function up()
     {
         $this->createTable($this->table, [
@@ -22,10 +20,5 @@ class m220101_223534_cron extends Migration
             'status' => $this->smallInteger(1)->defaultValue(1)->comment('Status'),
             'created_at' => $this->integer()->comment('Created At')
         ], $this->tableOptions);
-    }
-
-    public function down()
-    {
-        $this->dropTable($this->table);
     }
 }

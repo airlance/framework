@@ -11,13 +11,17 @@ class Configuration
 {
     private $applicationConfig;
 
-    public function __construct(ApplicationInterface $applicationConfig)
+    private $configReader;
+
+    public function __construct(ApplicationInterface $applicationConfig, ReaderInterface $reader)
     {
         $this->applicationConfig = $applicationConfig;
+        $this->configReader = $reader;
     }
 
     public function initialization(): array
     {
+        $this->applicationConfig->setReader($this->configReader);
         return $this->applicationConfig->getConfig();
     }
 }

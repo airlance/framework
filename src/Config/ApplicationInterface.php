@@ -10,4 +10,6 @@ namespace Airlance\Framework\Config;
 interface ApplicationInterface
 {
     public function getConfig(): array;
+
+    public function setReader(ReaderInterface $reader);
 }
