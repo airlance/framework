@@ -1,7 +1,6 @@
 <?php
-namespace Airlance\Framework\Migration;
 
-use yii\db\Migration;
+use Airlance\Framework\Db\Migration;
 
 /**
  * Class m220101_223534_cron
