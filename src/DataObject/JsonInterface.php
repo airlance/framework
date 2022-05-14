@@ -2,11 +2,11 @@
 namespace Airlance\Framework\DataObject;
 
 /**
- * DataObject
+ * JsonInterface
  *
  * @author ReSoul <roberts.mark1985@gmail.com>
  * @since 1.0
  */
-class DataObject
+interface JsonInterface
 {
 }
