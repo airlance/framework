@@ -1,6 +1,7 @@
 <?php
 namespace Airlance\Framework\Resource;
 
+use Yii;
 /**
  * ResourceProvider
  *
@@ -32,6 +33,15 @@ class ResourceProvider
         }
 
         return $this->resource->getPrimaryKey();
+    }
+
+    public function bulkInsert($column = [])
+    {
+        $table_name = forward_static_call([get_class($this->resource), 'tableName']);
+
+        $command = Yii::$app->db->createCommand();
+        $command->batchInsert($table_name, $column, $this->arguments);
+        $command->execute();
     }
 
     public function runValidation($validate)

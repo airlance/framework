@@ -27,7 +27,7 @@ class JobController extends Controller
         foreach (Job::find()->where(['status' => Status::STATUS_ACTIVE])->all() as $job) {
             $cron = new CronExpression($job->command);
             if ($time >= strtotime($cron->getNextRunDate()->format('Y-m-d H:i:s'))) {
-                $command = 'php ' . ROOT_PATH . "/frdm cron/execute --job_id=$job->job_id &";
+                $command = 'php ' . ROOT_PATH . "/airlance cron/execute --job_id=$job->job_id &";
                 exec($command);
             }
         }
